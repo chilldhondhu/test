@@ -23,3 +23,13 @@
   shared-vpc to app-vpc
   <img width="1104" height="736" alt="image" src="https://github.com/user-attachments/assets/3204bbff-bebd-4e37-83bf-e6f2f205a3d8" />
 
+  ## Firewall Rules
+    ### Allow shared-vpc to app-vpc
+      gcloud compute --project=quiet-rigging-490521-d6 firewall-rules create allow-shared-to-app --description=allow-shared-to-app --direction=INGRESS --priority=1000 --network=app-vpc --action=ALLOW --rules=tcp,udp,icmp --source-ranges=10.100.0.0/16
+    ### Allow app-vpc to shared-vpc
+      gcloud compute --project=quiet-rigging-490521-d6 firewall-rules create allow-app-to-shared --description=allow-app-to-shared --direction=INGRESS --priority=1000 --network=shared-vpc --action=ALLOW --rules=tcp,udp,icmp --source-ranges=10.10.0.0/16
+    ### allow-https to app-vpc
+      gcloud compute --project=quiet-rigging-490521-d6 firewall-rules create allow-https --direction=INGRESS --priority=1000 --network=app-vpc --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0
+    ### GCP Health Checks
+      gcloud compute --project=quiet-rigging-490521-d6 firewall-rules create allow-gcp-health-checks --direction=INGRESS --priority=1000 --network=app-vpc --action=ALLOW --rules=tcp --source-ranges=35.191.0.0/16,130.211.0.0/22
+    
