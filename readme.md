@@ -17,5 +17,9 @@
 
   ## VPC Peering
   VPC peering was configured using IPv4 single-stack networking with custom route exchange enabled to support scalable private communication between isolated application and shared services networks. Public private-route exchange was disabled because the architecture uses standard RFC1918 private addressing. Independent update strategy was selected for operational simplicity and flexible network administration
-  
+  app-vpc to shared-vpc
   <img width="1104" height="718" alt="Screenshot 2026-05-17 at 11 01 58 PM" src="https://github.com/user-attachments/assets/3e347c47-b66a-4e91-9608-9770a6202b35" />
+
+  shared-vpc to app-vpc
+  <img width="1104" height="736" alt="image" src="https://github.com/user-attachments/assets/3204bbff-bebd-4e37-83bf-e6f2f205a3d8" />
+
